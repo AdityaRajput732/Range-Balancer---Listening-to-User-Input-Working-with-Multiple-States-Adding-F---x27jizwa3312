@@ -9,7 +9,12 @@ const App = () => {
 
   const handleMaxSumChange = (event) => {
     setMaxSum(parseInt(event.target.value));
+    setRangeB(parseInt(event.target.value)-parseInt(valueA))
+    // setRangeB(parseInt(event.target.value)-parseInt(rangeA))
     // setRangeB(parseInt(event.target.value));
+    
+    // setRangeA(parseInt(maxSum)-parseInt(rangeB))
+    // setValueA(parseInt(maxSum)-parseInt(rangeB))
     if(maxSum==rangeB){
       setRangeA(0);
     } else{
@@ -31,7 +36,7 @@ const App = () => {
     setValueB(event.target.value)
     // setMaxSum(parseInt(valueA) + parseInt(event.target.value));
   };
-  console.log(rangeA, rangeB, maxSum);
+  // console.log(rangeA, rangeB, maxSum);
 
   return (
     <div>
