@@ -13,7 +13,7 @@ const App = () => {
     // setRangeB(parseInt(event.target.value)-parseInt(rangeA))
     // setRangeB(parseInt(event.target.value));
     
-    // setRangeA(parseInt(maxSum)-parseInt(rangeB))
+    setRangeA(parseInt(maxSum)-parseInt(rangeB))
     // setValueA(parseInt(maxSum)-parseInt(rangeB))
     if(maxSum==rangeB){
       setRangeA(0);
