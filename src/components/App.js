@@ -13,13 +13,13 @@ const App = () => {
     // setRangeB(parseInt(event.target.value)-parseInt(rangeA))
     // setRangeB(parseInt(event.target.value));
     
-    setRangeA(parseInt(maxSum)-parseInt(rangeB))
+    setRangeA(parseInt(maxSum)-parseInt(valueB))
     // setValueA(parseInt(maxSum)-parseInt(rangeB))
-    if(maxSum==rangeB){
-      setRangeA(0);
-    } else{
-      setRangeA(parseInt(maxSum)-parseInt(rangeB))
-    }
+    // if(maxSum==rangeB){
+    //   setRangeA(0);
+    // } else{
+    //   setRangeA(parseInt(maxSum)-parseInt(rangeB))
+    // }
   };
 
   const handleRangeAChange = (event) => {
@@ -31,7 +31,7 @@ const App = () => {
 
   const handleRangeBChange = (event) => {
     console.log(event.target.value);
-    setRangeB(parseInt(maxSum)-parseInt(rangeA));
+    setRangeB(parseInt(maxSum)-parseInt(valueA));
     setRangeA(parseInt(maxSum)-parseInt(event.target.value))
     setValueB(event.target.value)
     // setMaxSum(parseInt(valueA) + parseInt(event.target.value));
