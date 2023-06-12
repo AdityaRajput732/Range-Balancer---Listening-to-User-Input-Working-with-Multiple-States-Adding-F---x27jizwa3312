@@ -17,10 +17,9 @@ const handleMaxSumChange = (event) => {
     setMaxSum(newMaxSum);
     setRangeA(newRangeA);
     setRangeB(newRangeB);
-    setValueA(Math.min(valueA, newRangeA));
-    setValueB(Math.min(valueB, newRangeB));
   }
 };
+
 
 
 
@@ -46,14 +45,15 @@ const handleMaxSumChange = (event) => {
         Input max sum:-
         <input type="number" value={maxSum} onChange={handleMaxSumChange} />
       </div>
-      <div id="range-a-holder">
-        <input type="range" value={valueA} max={rangeA} onChange={handleRangeAChange} />
-        <span id="range-a-value">{valueA}</span>
-      </div>
-      <div id="range-b-holder">
-        <input type="range" value={valueB} max={rangeB} onChange={handleRangeBChange} />
-        <span id="range-b-value">{valueB}</span>
-      </div>
+    <div id="range-a-holder">
+  <input type="range" value={valueA} max={rangeA} onChange={handleRangeAChange} />
+  <span id="range-a-value">{valueA}</span>
+</div>
+<div id="range-b-holder">
+  <input type="range" value={valueB} max={rangeB} onChange={handleRangeBChange} />
+  <span id="range-b-value">{valueB}</span>
+</div>
+
       <div id="sum">{parseInt(valueA) + parseInt(valueB)}</div>
     </div>
   );
