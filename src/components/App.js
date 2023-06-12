@@ -17,8 +17,11 @@ const handleMaxSumChange = (event) => {
     setMaxSum(newMaxSum);
     setRangeA(newRangeA);
     setRangeB(newRangeB);
+    setValueA(Math.min(valueA, newRangeA));
+    setValueB(Math.min(valueB, newRangeB));
   }
 };
+
 
 
   const handleRangeAChange = (event) => {
