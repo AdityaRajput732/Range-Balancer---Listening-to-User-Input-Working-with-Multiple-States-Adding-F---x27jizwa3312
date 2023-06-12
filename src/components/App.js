@@ -7,19 +7,14 @@ const App = () => {
   const [valueA, setValueA] = useState(0);
   const [valueB, setValueB] = useState(50);
 
-  const handleMaxSumChange = (event) => {
-    setMaxSum(parseInt(event.target.value));
-    setRangeB(parseInt(event.target.value)-parseInt(valueA))
-    // setRangeB(parseInt(event.target.value)-parseInt(rangeA))
-    // setRangeB(parseInt(event.target.value));
-    
-    setRangeA(parseInt(maxSum)-parseInt(valueB))
-    // setValueA(parseInt(maxSum)-parseInt(rangeB))
-    // if(maxSum==rangeB){
-    //   setRangeA(0);
-    // } else{
-    //   setRangeA(parseInt(maxSum)-parseInt(rangeB))
-    // }
+ const handleMaxSumChange = (event) => {
+    const newMaxSum = parseInt(event.target.value);
+    const newRangeA = Math.min(rangeA, newMaxSum - valueB);
+    const newRangeB = Math.min(rangeB, newMaxSum - valueA);
+  
+    setMaxSum(newMaxSum);
+    setRangeA(newRangeA);
+    setRangeB(newRangeB);
   };
 
   const handleRangeAChange = (event) => {
