@@ -1,69 +1,30 @@
-import React, { useState } from 'react';
-
+import React, { useState } from 'react'
+import '../styles/App.css';
 const App = () => {
-  const [maxSum, setMaxSum] = useState(50);
-  const [rangeA, setRangeA] = useState(0);
-  const [rangeB, setRangeB] = useState(50);
-  const [valueA, setValueA] = useState(0);
-  const [valueB, setValueB] = useState(50);
-
-  const handleMaxSumChange = (event) => {
-    const newMaxSum = parseInt(event.target.value);
-
-    if (!isNaN(newMaxSum)) {
-      setMaxSum(newMaxSum);
-      setRangeA(Math.min(rangeA, newMaxSum - valueB));
-      setRangeB(Math.min(rangeB, newMaxSum - valueA));
-    }
-  };
-
-  const handleRangeAChange = (event) => {
-    const newValueA = parseInt(event.target.value);
-
-    if (!isNaN(newValueA)) {
-      setValueA(newValueA);
-    }
-  };
-
-  const handleRangeBChange = (event) => {
-    const newValueB = parseInt(event.target.value);
-
-    if (!isNaN(newValueB)) {
-      setValueB(newValueB);
-    }
-  };
-
+  const [a,setA] = useState(0)
+  const [b,setB] = useState(50)
+  const [t,setT] = useState(50)
   return (
-    <div>
+    <div id="main">
+
       <div id="max-sum-holder">
         Input max sum:-
-        <input
-          type="number"
-          value={maxSum}
-          onChange={handleMaxSumChange}
-        />
+        <input type={"number"} value={t} onChange={e=> setT(e.target.value)}/>
       </div>
       <div id="range-a-holder">
-        <input
-          type="range"
-          value={valueA}
-          max={rangeA}
-          onChange={handleRangeAChange}
-        />
-        <span id="range-a-value">{valueA}</span>
+        <input type={"range"} value={a} onChange={(e)=>setA(e.target.value)} max={t-b}/>
+        <span id="range-a-value">{a}</span>
       </div>
-      <div id="range-b-holder">
-        <input
-          type="range"
-          value={valueB}
-          max={rangeB}
-          onChange={handleRangeBChange}
-        />
-        <span id="range-b-value">{valueB}</span>
+      <div  id="range-b-holder">
+        <input type={"range"} value={b} onChange={(e)=>setB(e.target.value)} max={t-a}/>
+        <span id="range-b-value">{b}</span>
       </div>
-      <div id="sum">{parseInt(valueA) + parseInt(valueB)}</div>
+      <div id="sum">
+            {[a,b].map(Number).reduce((sum,cur)=>sum+cur,0)}
+      </div>
     </div>
-  );
-};
+  )
+}
+
 
 export default App;
